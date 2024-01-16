@@ -1,13 +1,10 @@
-import HomePage from './Components/----';
+import HomePage from './Components/homepage.jsx';
+import '../index.css';
+import React from 'react';
 
 const App = () => {
   return (
-    <Routes>
-      <Route
-        path='/'
-        element={<HomePage />}
-      />
-    </Routes>
+    <h1>Hello!</h1>
   );
 };
 export default App;

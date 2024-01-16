@@ -35,8 +35,8 @@ module.exports = {
         },
       },
       {
-        test: /\.s?css/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
@@ -64,6 +64,6 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss'],
+    extensions: ['.js', '.jsx', '.json'],
   },
 };
