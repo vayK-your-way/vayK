@@ -1,10 +1,11 @@
-import HomePage from './Components/homepage.jsx';
+import HomePage from './components/HomePage.jsx';
 import '../index.css';
 import React from 'react';
+import PageContentContainer from './components/PageContentContainer.jsx'
 
 const App = () => {
   return (
-    <h1>Hello!</h1>
+    <PageContentContainer />
   );
 };
 export default App;

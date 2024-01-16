@@ -50,7 +50,7 @@ module.exports = {
   //configures webpack dev server & proxies calls to /api to root of backend
   devServer: {
     host: 'localhost',
-    port: 8080,
+    port: 5500,
     historyApiFallback: true,
     hot: true,
     static: {

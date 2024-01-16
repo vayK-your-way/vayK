@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("./client/assets/Montserrat-VariableFont_wght.ttf");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
