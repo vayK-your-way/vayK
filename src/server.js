@@ -54,12 +54,6 @@ app.use((err, req, res, next) => {
 //start server and connect to mongoDB
 app.listen(PORT, async () => {
   console.log(`Server listening on port: ${PORT}...`);
-  // try {
-  //   mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
-  //   console.log('Connected to Mongo DB...');
-  // } catch (error) {
-  //   console.log(error);
-  // }
 });
 
 module.exports = app;
