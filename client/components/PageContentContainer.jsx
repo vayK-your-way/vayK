@@ -1,9 +1,11 @@
-import SearchBox2 from './SearchBox'
+import SearchContainer from './SearchContainer.jsx'
+import React from 'react';
+
 
 const PageContentContainer = () => {
   return (
-    <div>
-      <SearchBox />
+    <div className='flex justify-center'>
+      <SearchContainer />
     </div>
   )
 }
