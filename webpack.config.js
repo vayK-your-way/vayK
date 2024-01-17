@@ -60,7 +60,7 @@ module.exports = {
     headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
       '/api/**': { target: 'http://localhost:3000/', secure: false },
-      //   '/users/**': { target: 'http://localhost:3000/', secure: false },
+      '/star/**': { target: 'http://localhost:3000/', secure: false },
     },
   },
   resolve: {

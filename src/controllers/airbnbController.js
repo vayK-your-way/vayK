@@ -8,7 +8,7 @@ const options = {
 };
 
 airbnbController.searchAirbnb = async (req, res, next) => {
-  const { query, checkIn, checkOut } = req.body; // paris, 2024-01-19, 2024-01-21, 100
+  const { query, checkIn, checkOut } = req.query; // paris, 2024-01-19, 2024-01-21, 100
   const url = `https://airbnb13.p.rapidapi.com/search-location?location=${query}&checkin=${checkIn}&checkout=${checkOut}&adults=1&children=0&infants=0&pets=0&page=1&currency=USD`;
   //   const url = `https://airbnb13.p.rapidapi.com/search-location?location=paris&checkin=2024-01-19&checkout=2024-01-21&adults=1&children=0&infants=0&pets=0&page=1&currency=USD`;
   try {
@@ -25,7 +25,5 @@ airbnbController.searchAirbnb = async (req, res, next) => {
     });
   }
 };
-
-airbnbController.searchAirbnb();
 
 module.exports = airbnbController;

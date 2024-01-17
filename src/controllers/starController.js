@@ -7,9 +7,12 @@ starController.addStar = (req, res, next) => {
   const user_id = req.cookies.vayk_cookie;
   userDB
     .query(
-      `INSERT INTO StarredListings VALUES (${user_id}, ${name}, ${price}, ${location}, ${picture_link}, ${check_in}, ${check_out}`,
+      `INSERT INTO StarredListings VALUES (${user_id}, ${name}, ${price}, ${location}, ${picture_link}, ${check_in}, ${check_out} RETURNING star_id`,
     )
-    .then(() => next())
+    .then((results) => {
+      res.locals.star_id = results.rows[0].star_id;
+      return next();
+    })
     .catch((err) =>
       next({
         log: `starController add star error: ${err}`,
@@ -37,14 +40,32 @@ starController.getAllStars = (req, res, next) => {
     );
 };
 
+starController.deleteStar = (req, res, next) => {
+  const star_id = req.params.star_id;
+  userDB
+    .query(`DELETE FROM StarredListings WHERE star_id = ${star_id}`)
+    .then(() => next())
+    .catch((err) =>
+      next({
+        log: `starController delete star error: ${err}`,
+        message: 'delete star error',
+        status: 500,
+      }),
+    );
+};
+
 // userDB
 //   .query(
-//     "INSERT INTO StarredListings (user_id, name, price, location, picture_link, check_in, check_out) VALUES (1, 'test', 100.00, 'test', 'test', '2024-01-17', '2024-01-18')",
+//     "INSERT INTO StarredListings (user_id, name, price, location, picture_link, check_in, check_out) VALUES (3, 'sdfd', 200.00, 'sdfsdfs', 'sdfsf', '2024-01-17', '2024-01-18') RETURNING star_id",
 //   )
 //   .then((results) => console.log(results));
 
 // userDB
 //   .query('SELECT * FROM StarredListings WHERE user_id = 1')
+//   .then((results) => console.log(results));
+
+// userDB
+//   .query('DELETE FROM StarredListings WHERE star_id = 4')
 //   .then((results) => console.log(results));
 
 module.exports = starController;

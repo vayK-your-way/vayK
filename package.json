@@ -15,6 +15,7 @@
     ]
   },
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.12.3",
     "pg": "^8.11.3",
