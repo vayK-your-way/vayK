@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 
 const apiRouter = require('./routes/api.js');
+const starRouter = require('./routes/star.js');
 
 const PORT = process.env.PORT || '3000';
 
@@ -16,6 +17,8 @@ app.use(express.urlencoded({ extended: true })); // requires header to parse
 
 //mounting api router
 app.use('/api', apiRouter);
+//mounting star router
+app.use('/star', starRouter);
 
 if (process.env.NODE_ENV === 'production') {
   // statically serve everything in the build folder on the route '/build'
