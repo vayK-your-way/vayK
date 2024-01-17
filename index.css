@@ -8,9 +8,11 @@
 @tailwind utilities;
 
 body {
-  background-image: url("https://i.postimg.cc/J0BCb0rs/vayk-gradient-bg.jpg");
+  /* background-image: url("https://i.postimg.cc/J0BCb0rs/vayk-gradient-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background: rgb(255, 255, 255);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 1) 0%, rgba(171, 213, 204, 1) 0%, rgba(255, 237, 225, 1) 100%);
 }

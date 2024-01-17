@@ -2,21 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 
-const SearchContainer = () => {
-
-  const [rentalList, setRentalList] = useState([]);
-
-  function handleSearch() {
-    const destinationInput = document.getElementById('destinationInput').value;
-    const checkIn = document.getElementById('checkIn').value;
-    const checkOut = document.getElementById('checkOut').value;
-
-    fetch(`http://localhost:3000/api/airbnb-info?query=${destinationInput}&checkIn=${checkIn}&checkOut=${checkOut}`, {
-      method: 'GET'
-    })
-      .then((res) => console.log(res))
-      .then((res) => setRentalList(res))
-  }
+const SearchContainer = (props) => {
 
   return (
     <div className='font-montserrat border rounded p-2'>
@@ -36,7 +22,7 @@ const SearchContainer = () => {
         </div>
         <div>
           <br />
-          <button onClick={handleSearch} className='border-secondary border rounded p-1'>Run Search</button>
+          <button onClick={props.handleSearch} className='border-secondary border rounded p-1'>Run Search</button>
         </div>
       </div>
     </div>

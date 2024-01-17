@@ -7,26 +7,21 @@ const options = {
   },
 };
 
-airbnbController.searchAirbnb = async (req, res, next) => {
+airbnbController.searchAirbnb = (req, res, next) => {
   const { query, checkIn, checkOut } = req.query; // paris, 2024-01-19, 2024-01-21, 100
-  console.log('query:', query)
-  console.log('checkIn:', checkIn)
-  console.log('checkOut:', checkOut)
+  // console.log('query:', query)
+  // console.log('checkIn:', checkIn)
+  // console.log('checkOut:', checkOut)
   const url = `https://airbnb13.p.rapidapi.com/search-location?location=${query}&checkin=${checkIn}&checkout=${checkOut}&adults=1&children=0&infants=0&pets=0&page=1&currency=USD`;
   //   const url = `https://airbnb13.p.rapidapi.com/search-location?location=paris&checkin=2024-01-19&checkout=2024-01-21&adults=1&children=0&infants=0&pets=0&page=1&currency=USD`;
-  try {
-    const response = await fetch(url, options);
-    const result = await response.json();
-    console.log(result);
-    res.locals.airbnbData = result;
-    return next();
-  } catch (error) {
-    return next({
-      log: `airbnbController error: ${err}`,
-      message: 'search Airbnb error',
-      status: 500,
-    });
-  }
+  fetch(url, options)
+    .then((result) => result.json())
+    .then((result) => {
+      // console.log(result);
+      res.locals.airbnbData = result.results;
+      return next();
+    })
+
 };
 
 module.exports = airbnbController;
