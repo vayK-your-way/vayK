@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const apiRouter = require('./routes/api.js');
 const starRouter = require('./routes/star.js');
@@ -14,6 +15,12 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json()); // parses body EXCEPT html
 app.use(express.urlencoded({ extended: true })); // requires header to parse
+app.use(
+  cors({
+    origin: 'http://localhost:5500',
+    credentials: true,
+  })
+);
 
 //mounting api router
 app.use('/api', apiRouter);

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { webpack } = require('webpack');
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -35,8 +36,8 @@ module.exports = {
         },
       },
       {
-        test: /\.s?css/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
@@ -50,7 +51,7 @@ module.exports = {
   //configures webpack dev server & proxies calls to /api to root of backend
   devServer: {
     host: 'localhost',
-    port: 8080,
+    port: 5500,
     historyApiFallback: true,
     hot: true,
     static: {
@@ -64,6 +65,6 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss'],
+    extensions: ['.js', '.jsx', '.json'],
   },
 };

@@ -1,11 +1,12 @@
+import '../index.css';
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import PageContentContainer from './components/PageContentContainer.jsx'
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" />
-    </Routes>
+    <div>
+      <PageContentContainer />
+    </div >
   );
 };
 export default App;
