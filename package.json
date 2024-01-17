@@ -4,9 +4,9 @@
   "description": "A sample package.json",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server/server.js",
+    "start": "NODE_ENV=production node src/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "rm -rf build & NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack server"
+    "dev": "rm -rf build & NODE_ENV=development nodemon src/server.js & NODE_ENV=development webpack server"
   },
   "nodemonConfig": {
     "ignore": [
@@ -17,6 +17,7 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.12.3",
+    "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^4.3.1",
