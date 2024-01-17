@@ -2,6 +2,7 @@ const userDB = require('../models/userModel.js');
 const cookieController = {};
 
 cookieController.verifyCookie = (req, res, next) => {
+  // check to see if cookie exists - if not, then add cookie and insert into db
   if (!req.cookies.vayk_cookie) {
     let userID;
     userDB

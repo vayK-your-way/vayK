@@ -8,6 +8,7 @@ router.get('/hotel-info', hotelController.getGeoID, hotelController.searchHotels
   res.status(200).json(res.locals.hotelData),
 );
 
+//data data from airbnb api
 router.get('/airbnb-info', airbnbController.searchAirbnb, (req, res) =>
   res.status(200).json(res.locals.airbnbData),
 );
